@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BluetoothTest</string>
+    <string name="app_name_addr">BluetoothAddrViewer</string>
+    <string name="app_name_rftest">BluetoothRFTest</string>
+    <string name="bd_addr">BD address here</string>
+    <string name="bd_addr_title">Bluetooth Device Address : </string>
+    <string name="run_bt_rf_test">Run Bluetooth RF test</string>
+    <string name="bt_rf_test_title">Bluetooth RF test</string>
+    <string name="stop_bt_rf_test">Stop Bluetooth RF test</string>
+    <string name="exit_bd_addr">Exit</string>
+    <string name="exit_bt_rf_test">Exit</string>
+    <string name="bluetooth_le_dut_mode">Bluetooth LE Test Mode</string>
+    <string name="enable_le_mode">Enable LE Test Mode</string>
+    <string name="disable_le_mode">Disable LE Test Mode</string>
+</resources>

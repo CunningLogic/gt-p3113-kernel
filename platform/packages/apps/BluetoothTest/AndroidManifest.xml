@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.sec.android.app.bluetoothtest"
+      android:sharedUserId="android.uid.system"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".BluetoothAddrViewer"
+		          android:label="@string/app_name_addr">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".BluetoothRfTest"
+		          android:label="@string/app_name_rftest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".BluetoothTestBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SECRET_CODE"></action>
+                <data android:scheme="android_secret_code" android:host="232337"></data>
+                <data android:scheme="android_secret_code" android:host="232331"></data>
+                <data android:scheme="android_secret_code" android:host="533881"></data>
+                <data android:scheme="android_secret_code" android:host="533880"></data>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".BluetoothBDAdrressReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="com.sec.android.app.bluetoothtest.BT_ID_WRITE" />
+		  <action android:name="com.sec.android.app.bluetoothtest.BT_ID_READ" />
+            </intent-filter>
+        </receiver>
+         <service android:name=".BluetoothBDTestService" android:process="com.android.phone">
+            <intent-filter>
+                <action android:name="com.bluetoothtestapp.BtBDstartservice.BootComplete" />
+		  <action android:name="com.sec.android.app.bluetoothtest.BT_ID_WRITE" />
+                <action android:name="com.sec.android.app.bluetoothtest.BT_ID_READ" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name=".BluetoothTestApp" android:process="com.android.phone">           
+            <intent-filter>
+                <action android:name="android.test.bluetooth.intent.action.HOSTREQ_BTTESTMODE" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".BluetoothTestService" android:process="com.android.phone">
+            <intent-filter>
+                <action android:name="com.bluetoothtestapp.btstartservice" />
+            </intent-filter>
+        </service>
+        <activity android:name=".BluetoothLEDutMode"
+		          android:label="@string/bluetooth_le_dut_mode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-sdk android:minSdkVersion="5" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+</manifest>
